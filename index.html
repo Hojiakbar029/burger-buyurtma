@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+        }
+        .block1 {
+            min-width: 48%;
+        }
+        body{
+            background-color: aqua;
+        }
+        .container1 {
+            font-family: Arial, Helvetica, sans-serif;
+            max-width: 1130px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        h2 {
+            margin: 15px 0;
+        }
+        #select {
+            background-color: blue;
+            color: aqua;
+            padding: 2px;
+            border-radius: 5px;
+            width: 200px;
+            font-size: 18px;
+        }
+        .form button{
+            width: 80px;
+            height: 80px;
+            border-radius: 100%;
+            font-size: 20px;
+            background-color: inherit;
+        }
+ 
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+       
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-left: 10px;
+            height: 25px;
+            width: 25px;
+            background-color: blue;
+            border-radius: 5px;
+        }
+ 
+        .container input:checked ~ .checkmark {
+            background-color: aqua;
+            border-radius: 5px;
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+    
+        .container input:checked ~ .checkmark:after {
+            display: block;
+        }
+        
+        .container .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid black;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .line {
+            background-color: black;
+            width: 3px;
+        }
+
+        .block2 {
+            width: 45%;
+            margin-left: 70px;
+            margin-right: -50px;
+        }
+        span {
+            font-weight: 100;
+        }
+        .titleIchida {
+            font-weight: 100;
+            color: cadetblue;
+        }
+        .titleQoshimchalari{
+            color: cadetblue;
+            font-weight: 100;
+        }
+        .Buyurtma {
+            cursor: pointer;
+            color: white;
+            background-color: blue;
+            padding: 10px 15px;
+            border: none;
+            font-size: 25px;
+            border-radius: 8px;
+        }
+        .buyurtma:hover {
+            opacity: 0.8;
+        }
+        .checking{
+            display: flex;
+        }
+        .checking1{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <h1>Burger Buyurtma Qilish!</h1>
+    <div class="container1">
+        <div class="block1">
+            <form class="form">
+                <h2>Nomi Qanday Bo'lsin?</h2>
+                <select name="" id="select">
+                    <option value="siz tanlamadiz">Tanlash</option>
+                    <option value="Xotdog">Xotdog</option>
+                    <option value="Gamburger">Gamburger</option>
+                    <option value="Nonburger">Nonburger</option>
+                </select>
+
+                <h2>Kattaligi</h2>
+                <button type="button" onclick="kattaligi('10sm')" class="sm">10sm</button>
+                <button type="button" onclick="kattaligi('15sm')" class="sm">15sm</button>
+                <button type="button" onclick="kattaligi('20sm')" class="sm">20sm</button>
+
+                <h2>Ichiga nima solaylik?</h2>
+                <div class="checking">
+                    <label class="container">Salat
+                        <input type="checkbox" class="check1">
+                        <span class="checkmark"></span>
+                      </label>
+                  <label class="container">Mayanez
+                    <input type="checkbox" class="check2">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              <div class="checking1">
+                <label class="container">Kalbasa
+                    <input type="checkbox" class="check3">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container">Pamildori
+                    <input type="checkbox" class="check4">
+                    <span class="checkmark"></span>
+                </label>
+              </div>
+
+                <h2>Qo'shimchalari</h2>
+                <label class="container">Shu-yetarli
+                    <input type="checkbox" class="shuyetarli">
+                    <span class="checkmark"></span>
+                </label>   
+                <label class="container">Pishloq
+                    <input type="checkbox" class="pishloq">
+                    <span class="checkmark"></span>
+                </label>
+            </form>
+        </div>
+        <span class="line"></span>
+        <div class="block2">
+            <h2 >Nomi: <span class="titleNomi"></span></h2>
+            <h2 >Kattaligi: <span class="titleKattaligi"></span></h2>
+            <h2 >Ichiga: <ul class="titleIchiga"><br></ul></h2>
+            <h2 >Qo'shimchalari: <ul class="titleQoshimchalari"></ul></h2>
+            <button class="Buyurtma">Buyurtma berish</button>
+        </div>
+    </div>
+    
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
