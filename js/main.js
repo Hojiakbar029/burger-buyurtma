@@ -19,7 +19,7 @@ var ElTitleIchiga = document.querySelector('.titleIchiga');
 var Elsm = document.querySelector('.sm');
 
 ElSelect.addEventListener('change', ()=>{
-    fullObj.Nomi = ElSelect.value;
+    fullObj.nomi = ElSelect.value;
     ElTitleNomi.textContent = ElSelect.value;
 })
 
